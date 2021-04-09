@@ -62,7 +62,41 @@ while(n > 0):
 
 ```
 
+**Complexity**: O(a\*b) for each test case so overall *O(n a b)*
+
+**Source:** [Fun with Sequences](https://www.spoj.com/problems/SMPSEQ3/)
+the limits for the problem are small (100 element in both arrays), simply going over array `s` and checking if the current value exists in `q`, if it doesn't then print it out, otherwise move to the next value.
+
 ## A - 3
+
+```python
+# your code goes here
+n = int(input())
+s = [int(i) for i in input().split(' ')]
+m = int(input())
+q = [int(i) for i in input().split(' ')]
+
+for i in s:
+  for j in q:
+    if i == j: break
+  else:
+    print(i, end=" ")
+```
+
+or a simpler syntax:
+
+```python
+n = int(input())
+s = [int(i) for i in input().split(' ')]
+m = int(input())
+q = [int(i) for i in input().split(' ')]
+
+for i in s:
+  if i not in q:
+    print(i, end=" ")
+```
+
+**Complexity:** *O(|s| \* |q|)* the product of two strings lengths.
 
 ## A - 4
 
