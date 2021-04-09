@@ -100,6 +100,17 @@ for i in s:
 
 ## A - 4
 
+**Source:** [Mini-Max-Sum](https://www.hackerrank.com/contests/university-codesprint/challenges/mini-max-sum)  
+find the minimum, the maximum and the sum, subtract minimum from sum to get maximum sum, subtract maximum from sum to get minimum sum.
+
+```python
+a = [int(i) for i in input().split(' ')]
+s, mx, mn= sum(a), max(a), min(a)
+print(str(s - mx) + ' ' + str(s - mn))
+```
+
+**Complexity:** *O(n)* length of sequence, but in this case the length is always 5, so it's basically *O(1)*.
+
 ## B - 1
 
 ## B - 2
