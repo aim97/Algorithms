@@ -4,8 +4,9 @@
 
 import sys
 
-sys.stdin = open('in')
-sys.stdout = open('out', 'w')
+# redirect stdin and stdout to files
+# sys.stdin = open('in')
+# sys.stdout = open('out', 'w')
 
 # global state 
 # this array is shared between recursive calls to hold the 
