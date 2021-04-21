@@ -146,24 +146,26 @@ print(superDigit(n, k))
 
 **Source:** [The power sum](https://www.hackerrank.com/challenges/the-power-sum/problem)  
 this is a divide and Conquer problem.  
-The problem state: it's trivial to have `x` as part of the state, but we also need an additional value `sm` that represents the smallest number you can't use.  
+**The problem state:** it's trivial to have `x` as part of the state, but we also need an additional value `sm` that represents the smallest number you CAN use, and even though here we pass the power `n` to the function as well, it doesn't count as part of the problem state, since it doesn't change through out the recursion tree, So we won't include it in the explanation below.  
 
-The sub problems: let's call our function f then the answer we are looking for is *f(x, sm)*.
+**The sub problems:** let's call our function f then the answer we are looking for is *f(x, sm)*.
 at this state we can decide either of:
 
 1. Try to use `sm + 1` in the sequence: Subtract `sm + 1` from `x`.
 2. Decide not to use `sm + 1` in the sequence: leave `x` as is.
 
-in both cases the value of `sm`  becomes `sm + 1` to signify that all values <= `sm + 1` aren't to be used in the sequence.  
+in both cases the value of `sm`  becomes `sm + 1` to signify that all values < `sm + 1` aren't to be used in the sequence.  
 
 This definition is correct because there are no other possible actions to take, we can either have `sm + 1` as part of the sequence exactly once, or not have it at all, since we cover all possible options, then we necessaily cover all possible cases.
 
-so `f(x, sm + 1)`: number of all possible paths to reach `x` without using `sm + 1`.  
-`f(x - sm - 1, sm + 1)`: number of all possible paths to reach `x` that include `sm + 1`.  
+so `f(x, sm + 1)`: number of all possible paths to reach `x` without using `(sm + 1)^n`.  
+`f(x - sm - 1, sm + 1)`: number of all possible paths to reach `x` that include `(sm + 1)^n`.  
 
 `f(x, sm)`: the number of all path to reach x.  
 So to merge the sub problems we need to add their results:  
 `f(x, sm)` = `f(x, sm + 1)` + `f(x - sm - 1, sm + 1)`
+
+The only difference introduced by the addition of the power `n` is that you subtract `sm^n` instead of just `sm`.
 
 ```cpp
 #include <bits/stdc++.h>
